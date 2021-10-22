@@ -3,13 +3,22 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const nayoks = ['Jhon', 'Wick', 'Tom']
+
+
+  const nayoks = [{name:'Jhon', age:35}, {name:'Wick', age: 34}, {name:'Tom', age:23}, {name:'Jasmin', age:19},{name:'Malkova', age: 23}]
+
+
   return (
     <div className="App">
       <MovieCounter></MovieCounter>
-      <Nayok name={nayoks[1]} age= '56'></Nayok>
-      <Nayok name="Tom"></Nayok>
-      <Nayok name="Tony"></Nayok>
+
+      {
+        nayoks.map(nayok=> <Nayok name={nayok.name} age={nayok.age}>{nayok}</Nayok>)
+         
+        }
+
+
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <a
@@ -24,6 +33,7 @@ function App() {
     </div>
   );
 }
+
 function MovieCounter() {
   let [count, setCount] = useState(0)
 
